@@ -45,6 +45,11 @@ p {
   }
 }
 
+.brand-logo {
+  font-family: 'Anton', sans-serif;
+}
+
+
 .icon-block {
   padding: 0 15px;
 }
@@ -60,6 +65,14 @@ footer.page-footer {
   color: white;
 }
 
+.validate {
+  color: white;
+}
+
 #location {
   color: white;
+}
+
+h1 {
+  font-family: 'Anton', sans-serif;
 }
