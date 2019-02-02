@@ -16,7 +16,7 @@ p {
 }
 
 .sidenav-trigger {
-  color: #8b1014;
+  color: teal;
 }
 
 .parallax-container {
@@ -62,15 +62,23 @@ footer.page-footer {
 }
 
 #event_name {
-  color: white;
-}
-
-.validate {
-  color: white;
+  color: black;
 }
 
 #location {
-  color: white;
+  color: black;
+}
+
+#user_name {
+  color: black;
+}
+
+#email {
+  color: black;
+}
+
+.validate {
+  color: black;
 }
 
 h1 {
