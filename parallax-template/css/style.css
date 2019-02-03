@@ -84,3 +84,22 @@ footer.page-footer {
 h1 {
   font-family: 'Anton', sans-serif;
 }
+
+#event_name.validate {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#location.validate {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.input-field > label {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
