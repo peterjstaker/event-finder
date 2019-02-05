@@ -40,7 +40,7 @@ $(document).ready(function () {
     console.log(newUser)
     database.ref().push(newUser);
 
-    //clears form for next train 
+    //clears form  
     $("#user-name").val("");
     $("#email").val("");
     
