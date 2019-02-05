@@ -14,11 +14,7 @@
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Event Finder</a>
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <div id="logo-container" class="brand-logo">Event Finder</div>
     </div>
   </nav>
 
@@ -28,42 +24,97 @@
         <br><br>
         <h1 class="header center white-text text-lighten-2">Event Finder</h1>
         <br><br>
+        <div class="row center">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="event_name" type="text" class="validate">
+                <label for="event_name">Artist, event, genre, or team</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="location" type="text" class="validate">
+                <label for="location">Location</label>
+              </div>
+            </div>
+          </div>
+          <div class="row center">
+            <div id="search-button" class="btn-large waves-effect waves-light teal-lighten">Search</div>
+          </div>
       </div>
     </div>
-    <div class="parallax"><img src="background 6.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="background 4.jpg" alt="Unsplashed background img 1"></div>
   </div>
 
 
   <div class="container">
     <div class="section">
 
-      <!--   Icon Section   -->
       <div class="row">
         <div class="col s12 m12">
           <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Search</h5>
-            <div class="row center">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input id="event_name" type="text" class="validate">
-                  <label for="event_name">Artist, event, genre or team</label>
+            <h2 class="center teal-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Events</h5>
+            <p class="light"></p>
+          </div>
+        </div>    
+          
+
+      <div class="row">
+        <div class="col s12 m12">
+       
+          <div class="col s4 s4">         
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="image for corresponding event" src="#">
                 </div>
-                <div class="input-field col s6">
-                  <input id="location" type="text" class="validate">
-                  <label for="location">Location</label>
+                <div class="event-info-card">
+                  <span class="card-title activator grey-text text-darken-4">Event, Location, Date<i class="material-icons right">more_vert</i></span>
+                  <p><a href="#">This is a link to purchase tickets</a></p>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
+                  <p>Here is where the google maps API info will be displayed</p>
                 </div>
               </div>
             </div>
-            <div class="row center">
-              <div id="search-button" class="btn-large waves-effect waves-light teal-lighten">Search</div>
-            </div>
 
-            <p class="light"></p>
-          </div>
+            <div class="col s4 s4">         
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                      <img class="image for corresponding event" src="#">
+                    </div>
+                    <div class="event-info-card">
+                      <span class="card-title activator grey-text text-darken-4">Event, Location, Date<i class="material-icons right">more_vert</i></span>
+                      <p><a href="#">This is a link to purchase tickets</a></p>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
+                      <p>Here is where the google maps API info will be displayed</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s4 s4">         
+                    <div class="card">
+                        <div class="card-image waves-effect waves-block waves-light">
+                          <img class="image for corresponding event" src="#">
+                        </div>
+                        <div class="event-info-card">
+                          <span class="card-title activator grey-text text-darken-4">Event, Location, Date<i class="material-icons right">more_vert</i></span>
+                          <p><a href="#">This is a link to purchase tickets</a></p>
+                        </div>
+                        <div class="card-reveal">
+                          <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
+                          <p>Here is where the google maps API info will be displayed</p>
+                        </div>
+                      </div>
+                    </div>                
+
         </div>
+       </div> 
+            
         </div>
       </div>
+      
 
     </div>
   </div>
@@ -86,16 +137,16 @@
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
+          <h4>Sign Up</h4>
           <p class="center-align light">Join our mailing list so we can keep you up to date on events happening near you!</p>
         </div>
         <div class="row">
           <div class="input-field col s6">
-            <input id="user_name" type="text" class="validate">
+            <input id="user_name" type="text" class="validate" placeholder="Name">
             <label for="user_name">Name</label>
           </div>
           <div class="input-field col s6">
-            <input id="email" type="text" class="validate">
+            <input id="email" type="text" class="validate" placeholder="Email Address">
             <label for="email">Email</label>
           </div>
           <div class="row center">
@@ -124,27 +175,9 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Our mission</h5>
-          <p class="grey-text text-lighten-4">We strive to make it easy for you to find out what the @#$! is happening around you and make it easy for you to attend any event.</p>
+          <p class="grey-text text-lighten-4">We strive to make it easy and convenient for you to find out what the @#$! is happening around you.</p>
 
 
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
         </div>
       </div>
     </div>
@@ -156,7 +189,6 @@
   </footer>
 
 
-  <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
