@@ -74,7 +74,7 @@ function testStartUp(){
     var location = $("#location").val().trim();
     // Replacing spaces with dashes on search, API doesn't register spaces.
     var searchReadyTopic = searchTopic.replace(/\s/g, "-");
-    var queryURL = 'https://api.seatgeek.com/2/venues?city=' + location
+    var queryURL = 'https://api.seatgeek.com/2/events?city=' + location
      + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
 
     $.ajax({
@@ -82,9 +82,18 @@ function testStartUp(){
       method: "GET"
     }).then(function(response) {
 
+      console.log(response);
+      
+      for(i=0;i<3;i++){
 
+      var image = response.;
+      
+      var eventDesc = '';
 
-    console.log(response);
+      var ticketLink = "";
+    
+      }
+    
 
 
     });
@@ -92,7 +101,7 @@ function testStartUp(){
 
 function createQURL(){
 
-    
+     
 
 }
 
