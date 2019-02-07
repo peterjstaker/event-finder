@@ -1,0 +1,99 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.brand-logo {
+  font-family: 'Anton', sans-serif;
+}
+
+
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+  font-size: inherit;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+#user_name {
+  color: black;
+}
+
+#email {
+  color: black;
+}
+
+h1 {
+  font-family: 'Anton', sans-serif;
+}
+
+#event_name.validate {
+  color: white;
+  font-size: 1.5rem;
+}
+
+#location.validate {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.input-field > label {
+  color: white;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.material-icons {
+ color: #26a69a;
+}
+
+.select-wrapper input.select-dropdown {
+  color: white;
+  font-weight: bold;
+}

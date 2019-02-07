@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Project 1</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <link rel="icon" href="images/logo.png" type="image/gif"
+  sizes="16x16">
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+</head>
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <div id="logo-container" class="brand-logo"><i class="material-icons">flash_on</i>Event Finder</div>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center white-text text-lighten-2">Event Finder</h1>
+        <br><br>
+        <div class="row center">
+            <div class="row">
+              <div class="input-field col s12 m4">
+                  <select>
+                    <option value="" disabled selected>Pick an option</option>
+                    <option value="1">Performer, Artist or Team</option>
+                    <option value="2">Genre</option>
+                    <option value="3">Other</option>
+                  </select>
+                  <label>Event Type</label>
+                </div>
+              <div class="input-field col s12 m4">
+                <input id="event_name" type="text" class="validate">
+                <label for="event_name">Search here</label>
+              </div>
+              <div class="input-field col s12 m4">
+                <input id="location" type="text" class="validate">
+                <label for="location">Zip Code</label>
+              </div>
+            </div>
+          </div>
+          <div class="row center">
+            <div id="search-button" class="btn-large waves-effect waves-light teal-lighten">Search</div>
+          </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="images/background 4.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 m12">
+          <div class="icon-block">
+            <h2 class="center teal-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Events</h5>
+            <p class="light"></p>
+          </div>
+        </div>    
+          
+
+      <div class="row" id="SearchResultsStage">
+        <div class="col s12 m12">
+       
+          <div class="col s12 m4">         
+            <div class="card" id="card-1">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="image for corresponding event" src="#">
+                </div>
+                <div class="event-info-card">
+                  <span class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
+                  <p><a href="#">This is a link to purchase tickets</a></p>
+                </div>
+                <div class="card-reveal" id="reveal-1">
+                  <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
+                  <p>Here is where the google maps API info will be displayed</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col s12 m4">         
+                <div class="card" id="card-2">
+                    <div class="card-image waves-effect waves-block waves-light">
+                      <img class="image for corresponding event" src="#">
+                    </div>
+                    <div class="event-info-card">
+                      <span class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
+                      <p><a href="#">This is a link to purchase tickets</a></p>
+                    </div>
+                    <div class="card-reveal" id="reveal-2">
+                      <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
+                      <p>Here is where the google maps API info will be displayed</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m4">         
+                    <div class="card" id="card-3">
+                        <div class="card-image waves-effect waves-block waves-light">
+                          <img class="image for corresponding event" src="#">
+                        </div>
+                        <div class="event-info-card">
+                          <span class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
+                          <p><a href="#">This is a link to purchase tickets</a></p>
+                        </div>
+                        <div class="card-reveal" id="reveal-3">
+                          <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
+                          <p>Here is where the google maps API info will be displayed</p>
+                        </div>
+                      </div>
+                    </div>                
+                </div>
+              </div>            
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern way to know whats happening around you.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="images/background 5.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Sign Up</h4>
+          <p class="center-align light">Join our mailing list so we can keep you up to date on events happening near you!</p>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="user-name" type="text" class="validate" placeholder="Name">
+          </div>
+          <div class="input-field col s6">
+            <input id="email" type="text" class="validate" placeholder="Email Address">
+          </div>
+          <div class="row center">
+            <div id="submit-button" class="btn-large waves-effect waves-light teal lighten">Join</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern way to know whats happening around you.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="images/background 4.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer teal lighten">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Our mission</h5>
+          <p class="grey-text text-lighten-4">We strive to make it easy and convenient for you to find out what the @#$! is happening around you.</p>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/main.js"></script>
+
+  </body>
+</html>
