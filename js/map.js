@@ -6,7 +6,13 @@ var geocoder = null;
 var userLocation;
 
 function setMap(userLocation, div) {
-    map = new google.maps.Map(document.getElementById(div), { center: { lat: userLocation["lat"], lng: userLocation["lng"] }, zoom: 8 });
+    var maphost = document.createElement("div");
+    maphost.style.width = "90%";
+    maphost.style.height = "100%";
+    maphost.id = "map-host";
+    document.getElementById(div).appendChild(maphost);
+    map = new google.maps.Map(document.getElementById(maphost, { center: { lat: userLocation["lat"], lng: userLocation["lng"] }, zoom: 8 });
+    addMarker(userLocation);
 }
 
 function addMarker(markerLocation) {
