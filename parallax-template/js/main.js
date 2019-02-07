@@ -13,7 +13,9 @@ function testPerformers(){
       method: "GET"
     }).then(function(response) {
 
-        console.log(response.events[0].title);
+        console.log(response.events);
+
+        console.log(response.events[0].venue.city);
 
 
 
@@ -50,7 +52,7 @@ function testGenre(){
     // Replacing spaces with dashes on search, API doesn't register spaces.
     var searchReadyTopic = searchTopic.replace(/\s/g, "-");
     var queryURL = 'https://api.seatgeek.com/2/events?q=' + searchReadyTopic
-     + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
+     +  '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
 
     $.ajax({
       url: queryURL,
@@ -61,10 +63,36 @@ function testGenre(){
 
 
 
-});
-
-
-
+    });
 }
 
+
+// search for popularity close by.
+function testStartUp(){
+    var searchTopic = $("#event_name").val().trim();
+    // 
+    var location = $("#location").val().trim();
+    // Replacing spaces with dashes on search, API doesn't register spaces.
+    var searchReadyTopic = searchTopic.replace(/\s/g, "-");
+    var queryURL = 'https://api.seatgeek.com/2/venues?city=' + location
+     + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function(response) {
+
+
+
+    console.log(response);
+
+
+    });
+}
+
+function createQURL(){
+
+    
+
+}
 
