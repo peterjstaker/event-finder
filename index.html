@@ -33,13 +33,22 @@
         <br><br>
         <div class="row center">
             <div class="row">
-              <div class="input-field col s12 m6">
+              <div class="input-field col s12 m4">
+                  <select>
+                    <option value="" disabled selected>Pick an option</option>
+                    <option value="1">Performer, Artist or Team</option>
+                    <option value="2">Genre</option>
+                    <option value="3">Other</option>
+                  </select>
+                  <label>Event Type</label>
+                </div>
+              <div class="input-field col s12 m4">
                 <input id="event_name" type="text" class="validate">
-                <label for="event_name">Artist, event, genre or team</label>
+                <label for="event_name">Search here</label>
               </div>
-              <div class="input-field col s12 m6">
+              <div class="input-field col s12 m4">
                 <input id="location" type="text" class="validate">
-                <label for="location">Location</label>
+                <label for="location">Zip Code</label>
               </div>
             </div>
           </div>
