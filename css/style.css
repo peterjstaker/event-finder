@@ -16,7 +16,7 @@ p {
 }
 
 .sidenav-trigger {
-  color: teal;
+  color: #26a69a;
 }
 
 .parallax-container {
@@ -61,14 +61,6 @@ footer.page-footer {
   margin: 0;
 }
 
-#event_name {
-  color: black;
-}
-
-#location {
-  color: black;
-}
-
 #user_name {
   color: black;
 }
@@ -77,10 +69,26 @@ footer.page-footer {
   color: black;
 }
 
-.validate {
-  color: black;
-}
-
 h1 {
   font-family: 'Anton', sans-serif;
+}
+
+#event_name.validate {
+  color: white;
+  font-size: 1.5rem;
+}
+
+#location.validate {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.input-field > label {
+  color: white;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.material-icons {
+ color: #26a69a;
 }
