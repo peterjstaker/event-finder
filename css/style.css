@@ -92,3 +92,8 @@ h1 {
 .material-icons {
  color: #26a69a;
 }
+
+.select-wrapper input.select-dropdown {
+  color: white;
+  font-weight: bold;
+}
