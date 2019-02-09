@@ -1,18 +1,23 @@
-
 //GLOBAL VARIABLES =========================================
 
-  //
+  // Only need this global.
+
   let userLocation = '';//CALL DELBERT'S CODE
 
-  let searchTopic = '';
+  //let searchTopic = '';
 
   //API Key
+  
+/*
+
   let api_key = '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
 
   //Main API Endpoint for SeatGeek
+  
   let api_endPoint = 'https://api.seatgeek.com/2';
 
   //Resource Endpoints
+  
   let events = '/events?q='; //endpoint returns artist and their events
 
   // let performers = 'performers.slug='; //might be useful, uncomment if needed
@@ -22,8 +27,10 @@
   //TEST VARIABLES ===========================================
   let artists = ['Sounders FC', 'Justin Timberlake', 'Adele'];
 
-//FUNCTIONS ================================================
+*/
 
+//FUNCTIONS ================================================
+/*
   function eventSearch(searchTopic) {
 
     let queryURL = queryBuilder(searchTopic);
@@ -50,113 +57,8 @@
     return queryString;
   }
 
-//TEST FUNCTIONS (Auri's Code) =============================
-  function testPerformers(){
-      //searches for artist AND teams
-      var searchTopic = $("#event_name").val().trim();
 
-      console.log(searchTopic);
-
-      var location = $("#location").val().trim();
-      // Replacing spaces with dashes on search, API doesn't register spaces.
-      var searchReadyTopic = searchTopic.replace(/\s/g, "-");
-
-      var queryURL = 'https://api.seatgeek.com/2/events?performers.slug=' + searchReadyTopic
-      + api_key;
-
-      console.log(queryURL);
-
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).then(function(response) {
-
-          console.log(response.events);
-
-          console.log(response.events[0].venue.city);
-
-      });
-  }
-
-  function testEventType(){
-      var searchTopic = $("#event_name").val().trim();
-      // 
-      var location = $("#location").val().trim();
-      // Replacing spaces with dashes on search, API doesn't register spaces.
-      var searchReadyTopic = searchTopic.replace(/\s/g, "-");
-      var queryURL = 'https://api.seatgeek.com/2/events?taxonomies.name=' + searchReadyTopic
-      + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).then(function(response) {
-
-          console.log(response.events[0].title);
-
-
-
-      });
-  }
-
-  //testGenre can be used for event name search as well.
-  function testGenre(){
-      var searchTopic = $("#event_name").val().trim();
-      // 
-      var location = $("#location").val().trim();
-      // Replacing spaces with dashes on search, API doesn't register spaces.
-      var searchReadyTopic = searchTopic.replace(/\s/g, "-");
-      var queryURL = 'https://api.seatgeek.com/2/events?q=' + searchReadyTopic
-      +  '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).then(function(response) {
-
-      console.log(response.events);
-
-
-
-      });
-  }
-
-  // search for popularity close by.
-  function testStartUp(){
-      var searchTopic = $("#event_name").val().trim();
-      // 
-      var location = $("#location").val().trim();
-      // Replacing spaces with dashes on search, API doesn't register spaces.
-      var searchReadyTopic = searchTopic.replace(/\s/g, "-");
-      var queryURL = 'https://api.seatgeek.com/2/events?city=' + location
-      + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-
-      $.ajax({
-        url: queryURL,
-        method: "GET"
-      }).then(function(response) {
-
-        console.log(response);
-        
-        for(i=0;i<3;i++){
-
-        var image = response;
-        
-        var eventDesc = '';
-
-        var ticketLink = "";
-      
-        }
-      
-
-
-      });
-  }
-
-  function createQURL(){
-
-  }
-
+*/
 //FUNCTION CALLS =========================================
   //non currently required
 
@@ -169,9 +71,123 @@
 
 //MAIN ACTION =============================================
 
+/*
 $('#search-button').on('click',function() {
 
   searchTopic = $("#event_name").val().trim();
   eventSearch(searchTopic);
 
 })
+*/
+
+// Auri Repurposed Functions!
+
+window.onload = function startUpSearch(){
+  
+  var queryURL = 'https://api.seatgeek.com/2/events?venue.city=Seattle&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+
+    console.log(response);
+    
+    for(i=0;i<3;i++){
+
+    var img = response.events[i].performers[0].image;
+    console.log(img);
+    var eventDesc = response.events[i].short_title;
+    var ticketLink = response.events[i].url;
+    
+    $(("#descCard"+i)).text(eventDesc);
+    
+    $(("#linkCard"+i)).attr("href", ticketLink);
+    
+
+    if(img === "null"){
+      
+      $(("#imgCard"+i)).attr("src", "images/logo.png");
+      console.log("Null!")
+    }
+
+    else{
+      
+      $(("#imgCard"+i)).attr("src", img);
+    
+    }
+
+  }
+  
+
+
+  });
+};
+
+function createQURL(){
+  queryStart = 'https://api.seatgeek.com/2/';
+  console.log(queryStart)
+
+    queryStart = queryStart + 'events?performers.slug=';
+    console.log(queryStart)
+
+      console.log("if statement fired")
+      searchTopic = $("#event_name").val().trim();
+      searchId = searchTopic.replace(/\s/g, "-"); 
+      queryStart = queryStart + searchId;
+      console.log(queryStart)
+      if( $("#location_check").attr('class') === "active"){
+        queryStart = queryStart + "&venues.postal_code=";
+        var location = $("#location").val().trim();
+        queryStart = queryStart + location;
+        queryURL = queryStart + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
+        console.log(queryStart)
+      }
+      else{
+        queryStart = queryStart + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
+        console.log(queryStart)
+        
+      }
+
+  getResultsEvents();
+};
+
+function getResultsEvents(){ 
+  queryURL = queryStart;
+  console.log(queryURL)
+    
+  $.ajax({
+  url: queryURL,
+  method: "GET"
+  
+  }).then(function(response) {
+  
+    console.log(response)
+      
+    for(i=0;i<3;i++){
+      console.log('loop fire')
+    var img = response.events[i].performers[0].image;
+    console.log(img);
+    var eventDesc = response.events[i].short_title;
+    var ticketLink = response.events[i].url;
+      
+    $(("#descCard"+i)).text(eventDesc);
+      
+    $(("#linkCard"+i)).attr("href", ticketLink);
+  
+    if(img === "null"){
+        
+      $(("#imgCard"+i)).attr("src", "images/logo.png");
+      console.log("Null!")
+    }
+  
+    else{
+        
+      $(("#imgCard"+i)).attr("src", img);
+      
+    }
+      
+  }
+  return
+  });
+};
