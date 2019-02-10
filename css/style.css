@@ -9,6 +9,7 @@
 nav ul a,
 nav .brand-logo {
   color: #444;
+  font-size: 1.8rem;
 }
 
 p {
@@ -91,9 +92,4 @@ h1 {
 
 .material-icons {
  color: #26a69a;
-}
-
-.select-wrapper input.select-dropdown {
-  color: white;
-  font-weight: bold;
 }
