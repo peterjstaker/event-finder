@@ -33,8 +33,8 @@ function getUserLocation(address) {
     if (address === null || address === "" || address === undefined) {
         //get address by ip
         $.ajax({ url: "http://api.ipstack.com/check?access_key=93b4b312bfe2d6973d6eb6f7c0be4c1a", method: "GET" }).then(function (resp) {
-            userLocation = pruneObjectTree(resp,["zip","latitude","longitude"]);
-            
+            userLocation = pruneObjectTree(resp, ["zip", "latitude", "longitude"]);
+
         });
     } else {
 
@@ -44,7 +44,7 @@ function getUserLocation(address) {
                 console.log(results);
                 userLocation = results;
                 //userLocation = pruneObjectTree(userLocation,["lat","lng","address"]);
-                
+
                 console.log(userLocation);
                 // {
                 //     lat: results[0].geometry.location.lat(),
@@ -85,16 +85,29 @@ function pruneObjectTree(srcObj, nodesToKeep) {
 
 function DFS(srcObj, search, destObj) {
     for (var prop in srcObj) {
-       
+
         //to prevent infinte recursion
-        if(prop==="0"){return; }
-         //check if node has children
+        if (Array.isArray(srcObj[prop])) {
+            //iterate through array if match found add to new object
+            const arr = srcObj[prop];
+
+            for (let index = 0; index < arr.length; index++) {
+                console.log(arr[index]);
+                DFS(arr[index],search,destObj);
+
+            }
+        }
+        if (typeof (srcObj[prop]) === "string") {
+
+        }
+        if (prop === "0") { return; }
+        //check if node has children
         DFS(srcObj[prop], search);
-       
+
         //check for matches
         for (let i = 0; i < search.length; i++) {
             if (prop === search[i]) {
-                  destObj[search[i]] = srcObj[prop];
+                destObj[search[i]] = srcObj[prop];
             }
         }
     }
