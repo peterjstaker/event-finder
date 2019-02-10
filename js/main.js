@@ -86,7 +86,7 @@ function testStartUp(){
       
       for(i=0;i<3;i++){
 
-      var image = response.;
+      //var image = response.;
       
       var eventDesc = '';
 
