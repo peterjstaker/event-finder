@@ -1,108 +1,139 @@
-var searchType
-var queryStart
-var queryURL 
-var searchId
+//GLOBAL VARIABLES =========================================
 
-//Firing properly in console
-function testStartUp(){
+  // Only need this global.
+
+  let userLocation = '';//CALL DELBERT'S CODE
+
+  //let searchTopic = '';
+
+  //API Key
   
-    var queryURL = 'https://api.seatgeek.com/2/events?venue.city=Seattle&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function(response) {
-
-      console.log(response);
-      
-      for(i=0;i<3;i++){
-
-      var img = response.events[i].performers[0].image;
-      console.log(img);
-      var eventDesc = response.events[i].short_title;
-      var ticketLink = response.events[i].url;
-      
-      $(("#descCard"+i)).text(eventDesc);
-      
-      $(("#linkCard"+i)).attr("href", ticketLink);
-      
-
-      if(img === "null"){
-        
-        $(("#imgCard"+i)).attr("src", "images/logo.png");
-        console.log("Null!")
-      }
-
-      else{
-        
-        $(("#imgCard"+i)).attr("src", img);
-      
-      }
-
-      
-
-      
-      
-      
-
-      }
-    
-
-
-    });
-};
-
 /*
-  Firing perfId() properly creates the searchId, 
-  going on to firing createQURL() properly creates the queryURL,
-  firing getResultsEvents() produces valid search results, however stops
-  before firing the loop currently.
 
-  All of this only seems to work when called in order in the browser console.
-  
-  When attempting to call these functions within one another
-  in order needed, the ajax calls get pushed to the bottom and the 
-  values need return too late to be referenced been troubleshooting this 
-  for a while to no avail.
+  let api_key = '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
 
+  //Main API Endpoint for SeatGeek
   
+  let api_endPoint = 'https://api.seatgeek.com/2';
+
+  //Resource Endpoints
+  
+  let events = '/events?q='; //endpoint returns artist and their events
+
+  // let performers = 'performers.slug='; //might be useful, uncomment if needed
+
+  // let venues = '/venues/'; //might be useful, uncomment if needed
+
+  //TEST VARIABLES ===========================================
+  let artists = ['Sounders FC', 'Justin Timberlake', 'Adele'];
 
 */
 
+//FUNCTIONS ================================================
+/*
+  function eventSearch(searchTopic) {
 
-function perfId(){
-  var artistSearch = $("#event_name").val().trim();
-  console.log(artistSearch);
-  var searchReadyArtist = artistSearch.replace(/\s/g, "-");
-  queryURL = 'https://api.seatgeek.com/2/performers?q=' + searchReadyArtist
-   + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
+    let queryURL = queryBuilder(searchTopic);
+
+    $.ajax({
+      url: queryURL,
+      method: 'Get'
+    }).then (function (response) {
+      console.log (response);
+      //TO DO: Check city to make sure that there is an event near the individual
+      //       if userLocation not in state of returned data -> inform the user that there
+      //       are no events near them
+
+      //TO DO: Update '#SearchResultsStage' with new data
+
+    });
+
+  }
+
+  function queryBuilder (performer) {
+
+    let queryString = api_endPoint + events + performer + api_key;
+    // console.log(queryString); //to test
+    return queryString;
+  }
+
+
+*/
+//FUNCTION CALLS =========================================
+  //non currently required
+
+
+//TEST BLOCK FUNCTION CALLS ==============================
+// eventSearch(artists[0]);
+// eventSearch(artists[1]);
+// eventSearch(artists[2]);
+// testPerformers();
+
+//MAIN ACTION =============================================
+
+/*
+$('#search-button').on('click',function() {
+
+  searchTopic = $("#event_name").val().trim();
+  eventSearch(searchTopic);
+
+})
+*/
+
+// Auri Repurposed Functions!
+
+window.onload = function startUpSearch(){
+  
+  var queryURL = 'https://api.seatgeek.com/2/events?venue.city=Seattle&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
 
   $.ajax({
     url: queryURL,
-    method: "GET",
+    method: "GET"
   }).then(function(response) {
-    
+
     console.log(response);
-    console.log(response.performers[0].id);
-    searchId = response.performers[0].id;
-    return searchId;
+    
+    for(i=1;i<4;i++){
+
+    var img = response.events[i].performers[0].image;
+    console.log(img);
+    var eventDesc = response.events[i].short_title;
+    var ticketLink = response.events[i].url;
+    
+    $(("#descCard"+i)).text(eventDesc);
+    
+    $(("#linkCard"+i)).attr("href", ticketLink);
+    
+
+    if(img === "null"){
+      
+      $(("#imgCard"+i)).attr("src", "images/logo.png");
+      console.log("Null!")
+    }
+
+    else{
+      
+      $(("#imgCard"+i)).attr("src", img);
+    
+    }
+
+  }
+  
+
+
   });
 };
 
 function createQURL(){
   queryStart = 'https://api.seatgeek.com/2/';
   console.log(queryStart)
-  var ddChoice = document.getElementById("valueCheck").value;
-  console.log(ddChoice)
 
-  if(ddChoice === '1'){
-    var searchType = 1;
-    queryStart = queryStart + 'events?performers.id=';
+    queryStart = queryStart + 'events?performers.slug=';
     console.log(queryStart)
-    if( $("#event_check").attr('class') === "active"){
+
       console.log("if statement fired")
-      searchId
-      console.log(searchId)
+      searchTopic = $("#event_name").val().trim();
+      searchId = searchTopic.replace(/\s/g, "-"); 
       queryStart = queryStart + searchId;
       console.log(queryStart)
       if( $("#location_check").attr('class') === "active"){
@@ -118,102 +149,22 @@ function createQURL(){
         
       }
 
-
-    }
-
-    else{
-      console.log("nada")
-    }
-
-
-  }
-
-  else if(ddChoice === '2'){
-    var searchType = 2;
-    queryStart = queryStart + 'venues?';
-    
-    if( $("#event_check").attr('class') === "active"){
-      queryStart = queryStart + 'name=';
-      searchTopic =  $('#event_name').val().trim();
-      searchReadyTopic = searchTopic.replace(/\s/g, "-");
-      queryStart = queryStart + searchReadyTopic;
-      
-      if( $("#location_check").attr('class') === "active"){
-        queryStart = queryStart + "&postal_code=";
-        location = $("#location").val().trim();
-        queryStart = queryStart + location;
-        queryStart = queryStart + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-        console.log(queryStart);
-
-      }
-      else{
-        queryStart = queryStart + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-        console.log(queryStart);
-      }
-
-    }
-
-    else if( $("#location_check").attr('class') === "active"){
-      queryStart = queryStart + "postal_code=";
-      queryStart = queryStart + $('#location').val().trim();
-      console.log(queryStart);
-      queryStart = queryStart + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-      console.log(queryStart);
-    }
-
-    else{
-      console.log("nada");
-    }
-
-  }
-
-  else if(ddChoice === '3'){
-    var searchType = 3;
-    queryStart = queryStart + 'events?type=';
-
-    if( $("#event_check").attr('class') === "active"){
-
-      queryStart = queryStart + $('#event_name').val().trim();
-
-      if( $("#location_check").attr('class') === "active"){
-        queryStart = queryStart + "&venue.postal_code=";
-        location = $("#location").val().trim();
-        queryStart = queryStart + location;
-        queryStart = queryStart + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-        console.log(queryStart);
-
-      }
-      else{
-        queryStart = queryStart + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-        console.log(queryStart);
-      }
-
-    }
-
-    else{
-      console.log("nada")
-    }
-
-
-  }
+  getResultsEvents();
 };
 
 function getResultsEvents(){ 
-
-  if(searchType = 1){
+  queryURL = queryStart;
+  console.log(queryURL)
     
-    queryURL = queryStart;
-    console.log(queryURL)
-    
-    $.ajax({
-    url: queryURL,
-    method: "GET"
+  $.ajax({
+  url: queryURL,
+  method: "GET"
   
   }).then(function(response) {
   
     console.log(response)
       
-    for(e=0;e<response.length;e++){
+    for(i=1;i<4;i++){
       console.log('loop fire')
     var img = response.events[i].performers[0].image;
     console.log(img);
@@ -239,11 +190,4 @@ function getResultsEvents(){
   }
   return
   });
-  };
-
 };
-
-function getResultsVenue(){
-
-};
-

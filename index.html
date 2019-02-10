@@ -15,7 +15,7 @@
 
 
   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 </head>
 <body>
@@ -33,27 +33,14 @@
         <br><br>
         <div class="row center">
             <div class="row">
-              <div class="input-field col s12 m4">
-                  <select  id="valueCheck">
-                    <option value="" disabled selected>Pick an option</option>
-                    <option value="1">Performer, Artist or Team</option>
-                    <option value="2">Venue</option>
-                    <option value="3">Event Type</option>
-                  </select>
-                  <label>Search Type</label>
-                </div>
-              <div class="input-field col s12 m4">
+              <div class="input-field col s12 m12">
                 <input id="event_name" type="text" class="validate">
-                <label id="event_check" for="event_name">Search here</label>
-              </div>
-              <div class="input-field col s12 m4">
-                <input id="location" type="text" class="validate">
-                <label id="location_check" for="location">Zip Code</label>
+                <label for="event_name">Performer, Artist, Team, etc.</label>
               </div>
             </div>
           </div>
           <div class="row center">
-            <div id="search-button" class="btn-large waves-effect waves-light teal-lighten">Search</div>
+            <div onclick= createQURL() id="search-button" class="btn-large waves-effect waves-light teal-lighten">Search</div>
           </div>
       </div>
     </div>
@@ -80,11 +67,11 @@
           <div class="col s12 m4">         
             <div class="card" id="card-1">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img id="imgCard0" class="image for corresponding event" src="#">
+                  <img id='imgCard1' class="image for corresponding event" src="#">
                 </div>
                 <div class="event-info-card">
-                  <span id="descCard0" class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
-                  <p><a id="linkCard0" href="#">This is a link to purchase tickets</a></p>
+                  <span id="descCard1" class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
+                  <p><a id='linkCard1' href="#">This is a link to purchase tickets</a></p>
                 </div>
                 <div class="card-reveal" id="reveal-1">
                   <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
@@ -96,11 +83,11 @@
             <div class="col s12 m4">         
                 <div class="card" id="card-2">
                     <div class="card-image waves-effect waves-block waves-light">
-                      <img id="imgCard1" class="image for corresponding event" src="#">
+                      <img id='imgCard2' class="image for corresponding event" src="#">
                     </div>
                     <div class="event-info-card">
-                      <span id="descCard1" class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
-                      <p><a id="linkCard1" href="#">This is a link to purchase tickets</a></p>
+                      <span id="descCard2" class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
+                      <p><a id='linkCard2' href="#">This is a link to purchase tickets</a></p>
                     </div>
                     <div class="card-reveal" id="reveal-2">
                       <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
@@ -112,11 +99,11 @@
                 <div class="col s12 m4">         
                     <div class="card" id="card-3">
                         <div class="card-image waves-effect waves-block waves-light">
-                          <img  id="imgCard2" class="image for corresponding event" src="#">
+                          <img id='imgCard3' class="image for corresponding event" src="#">
                         </div>
                         <div class="event-info-card">
-                          <span id="descCard2" class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
-                          <p><a id="linkCard2" href="#">This is a link to purchase tickets</a></p>
+                          <span id="descCard3" class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
+                          <p><a id='linkCard2' href="#">This is a link to purchase tickets</a></p>
                         </div>
                         <div class="card-reveal" id="reveal-3">
                           <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
@@ -136,7 +123,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern way to know whats happening around you.</h5>
+          <h5 class="header col s12 light">A modern way to know what's happening around you.</h5>
         </div>
       </div>
     </div>
@@ -147,7 +134,7 @@
     <div class="section">
 
       <div class="row">
-        <div class="col s12 center">
+        <div class="col s12 center" id="sign-up">
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h4>Sign Up</h4>
           <p class="center-align light">Join our mailing list so we can keep you up to date on events happening near you!</p>
@@ -173,7 +160,7 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern way to know whats happening around you.</h5>
+          <h5 class="header col s12 light">A modern way to know what's happening around you.</h5>
         </div>
       </div>
     </div>
@@ -202,5 +189,9 @@
   <script src="js/init.js"></script>
   <script src="js/app.js"></script>
   <script src="js/main.js"></script>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 4255576ef670c66b8832b47f8b3fdf0742512de7
   </body>
 </html>
