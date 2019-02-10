@@ -93,7 +93,11 @@ window.onload = function startUpSearch(){
 
     console.log(response);
     
+<<<<<<< HEAD
     for(i=0;i<3;i++){
+=======
+    for(i=1;i<4;i++){
+>>>>>>> Startup working. Onclick working.
 
     var img = response.events[i].performers[0].image;
     console.log(img);
@@ -164,7 +168,11 @@ function getResultsEvents(){
   
     console.log(response)
       
+<<<<<<< HEAD
     for(i=0;i<3;i++){
+=======
+    for(i=1;i<4;i++){
+>>>>>>> Startup working. Onclick working.
       console.log('loop fire')
     var img = response.events[i].performers[0].image;
     console.log(img);
