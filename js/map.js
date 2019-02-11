@@ -42,15 +42,11 @@ function getUserLocation(address) {
         this.geocoder.geocode({ "address": address }, function (results, status) {
             if (status === "OK") {
                 console.log(results);
-                userLocation = results;
+                //userLocation = results;
                 //userLocation = pruneObjectTree(userLocation,["lat","lng","address"]);
 
                 console.log(userLocation);
-                // {
-                //     lat: results[0].geometry.location.lat(),
-                //     lng: results[0].geometry.location.lng(),
-                //     zip: address
-                // };
+                
             } else {
                 console.log(status);
             }
