@@ -92,17 +92,7 @@ window.onload = function startUpSearch(){
   }).then(function(response) {
 
     console.log(response);
-    
-<<<<<<< HEAD
-<<<<<<< HEAD
-    for(i=0;i<3;i++){
-=======
     for(i=1;i<4;i++){
->>>>>>> Startup working. Onclick working.
-=======
-    for(i=1;i<4;i++){
->>>>>>> 63a43d8875dfbc3c239190c2e0e1ac086729dd02
-
     var img = response.events[i].performers[0].image;
     console.log(img);
     var eventDesc = response.events[i].short_title;
@@ -127,7 +117,6 @@ window.onload = function startUpSearch(){
 
   }
   
-<<<<<<< HEAD
 
 
   });
@@ -161,41 +150,6 @@ function createQURL(){
   getResultsEvents();
 };
 
-=======
-
-
-  });
-};
-
-function createQURL(){
-  queryStart = 'https://api.seatgeek.com/2/';
-  console.log(queryStart)
-
-    queryStart = queryStart + 'events?performers.slug=';
-    console.log(queryStart)
-
-      console.log("if statement fired")
-      searchTopic = $("#event_name").val().trim();
-      searchId = searchTopic.replace(/\s/g, "-"); 
-      queryStart = queryStart + searchId;
-      console.log(queryStart)
-      if( $("#location_check").attr('class') === "active"){
-        queryStart = queryStart + "&venues.postal_code=";
-        var location = $("#location").val().trim();
-        queryStart = queryStart + location;
-        queryURL = queryStart + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-        console.log(queryStart)
-      }
-      else{
-        queryStart = queryStart + '&client_id=MTUwOTQwOTh8MTU0ODkwODc0NS43Mw';
-        console.log(queryStart)
-        
-      }
-
-  getResultsEvents();
-};
-
->>>>>>> 63a43d8875dfbc3c239190c2e0e1ac086729dd02
 function getResultsEvents(){ 
   queryURL = queryStart;
   console.log(queryURL)
@@ -208,16 +162,9 @@ function getResultsEvents(){
   
     console.log(response)
       
-<<<<<<< HEAD
-<<<<<<< HEAD
-    for(i=0;i<3;i++){
-=======
+
     for(i=1;i<4;i++){
->>>>>>> Startup working. Onclick working.
-=======
-    for(i=1;i<4;i++){
->>>>>>> 63a43d8875dfbc3c239190c2e0e1ac086729dd02
-      console.log('loop fire')
+    console.log('loop fire')
     var img = response.events[i].performers[0].image;
     console.log(img);
     var eventDesc = response.events[i].short_title;
