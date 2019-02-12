@@ -7,8 +7,7 @@ help you find answer those fundamental questions and show you a map to help you 
 
 ## Getting Started
 
-Simply enter your search parameters, either artist, event or genre and/or location, to begin your search.  If no location is entered, the application will translate your IP address to your current location
-If you are interested in
+Simply enter your search, either artist, event to begin your search.  The application will translate your IP address to your current location
 
 ## Built With
 * [Materialize]( https://materializecss.com/getting-started.html) - The web design framework used
