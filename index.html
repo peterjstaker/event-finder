@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Project 1</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
   <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
-  <link rel="icon" href="images/logo.png" type="image/gif"
-  sizes="16x16">
+  <link rel="icon" href="images/logo.png" type="image/gif" sizes="16x16">
 
 
   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUGBQgj3zYGK6Qj_2iETwF7t9so16i20s" type="text/javascript"></script>
+
 </head>
+
 <body>
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
@@ -32,16 +36,16 @@
         <h1 class="header center white-text text-lighten-2">Event Finder</h1>
         <br><br>
         <div class="row center">
-            <div class="row">
-              <div class="input-field col s12 m12">
-                <input id="event_name" type="text" class="validate">
-                <label for="event_name">Performer, Artist, Team, etc.</label>
-              </div>
+          <div class="row">
+            <div class="input-field col s12 m12">
+              <input id="event_name" type="text" class="validate">
+              <label for="event_name">Performer, Artist, Team, etc.</label>
             </div>
           </div>
-          <div class="row center">
-            <div onclick= createQURL() id="search-button" class="btn-large waves-effect waves-light teal-lighten">Search</div>
-          </div>
+        </div>
+        <div class="row center">
+          <div onclick=createQURL() id="search-button" class="btn-large waves-effect waves-light teal-lighten">Search</div>
+        </div>
       </div>
     </div>
     <div class="parallax"><img src="images/background 4.jpg" alt="Unsplashed background img 1"></div>
@@ -58,14 +62,14 @@
             <h5 class="center">Events</h5>
             <p class="light"></p>
           </div>
-        </div>    
-          
+        </div>
 
-      <div class="row" id="SearchResultsStage">
-        <div class="col s12 m12">
-       
-          <div class="col s12 m4">         
-            <div class="card" id="card-1">
+
+        <div class="row" id="SearchResultsStage">
+          <div class="col s12 m12">
+
+            <div class="col s12 m4">
+              <div class="card" id="card-1">
                 <div class="card-image waves-effect waves-block waves-light">
                   <img id='imgCard1' class="image for corresponding event" src="#">
                 </div>
@@ -80,42 +84,42 @@
               </div>
             </div>
 
-            <div class="col s12 m4">         
-                <div class="card" id="card-2">
-                    <div class="card-image waves-effect waves-block waves-light">
-                      <img id='imgCard2' class="image for corresponding event" src="#">
-                    </div>
-                    <div class="event-info-card">
-                      <span id="descCard2" class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
-                      <p><a id='linkCard2' href="#">This is a link to purchase tickets</a></p>
-                    </div>
-                    <div class="card-reveal" id="reveal-2">
-                      <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
-                      <p>Here is where the google maps API info will be displayed</p>
-                    </div>
-                  </div>
+            <div class="col s12 m4">
+              <div class="card" id="card-2">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img id='imgCard2' class="image for corresponding event" src="#">
                 </div>
+                <div class="event-info-card">
+                  <span id="descCard2" class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
+                  <p><a id='linkCard2' href="#">This is a link to purchase tickets</a></p>
+                </div>
+                <div class="card-reveal" id="reveal-2">
+                  <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
+                  <p>Here is where the google maps API info will be displayed</p>
+                </div>
+              </div>
+            </div>
 
-                <div class="col s12 m4">         
-                    <div class="card" id="card-3">
-                        <div class="card-image waves-effect waves-block waves-light">
-                          <img id='imgCard3' class="image for corresponding event" src="#">
-                        </div>
-                        <div class="event-info-card">
-                          <span id="descCard3" class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
-                          <p><a id='linkCard2' href="#">This is a link to purchase tickets</a></p>
-                        </div>
-                        <div class="card-reveal" id="reveal-3">
-                          <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
-                          <p>Here is where the google maps API info will be displayed</p>
-                        </div>
-                      </div>
-                    </div>                
+            <div class="col s12 m4">
+              <div class="card" id="card-3">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img id='imgCard3' class="image for corresponding event" src="#">
                 </div>
-              </div>            
+                <div class="event-info-card">
+                  <span id="descCard3" class="card-title activator grey-text text-darken-4">Placeholder<i class="material-icons right">more_vert</i></span>
+                  <p><a id='linkCard2' href="#">This is a link to purchase tickets</a></p>
+                </div>
+                <div class="card-reveal" id="reveal-3">
+                  <span class="card-title grey-text text-darken-4">Location<i class="material-icons right">close</i></span>
+                  <p>Here is where the google maps API info will be displayed</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 
 
@@ -137,7 +141,8 @@
         <div class="col s12 center" id="sign-up">
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h4>Sign Up</h4>
-          <p class="center-align light">Join our mailing list so we can keep you up to date on events happening near you!</p>
+          <p class="center-align light">Join our mailing list so we can keep you up to date on events happening near
+            you!</p>
         </div>
         <div class="row">
           <div class="input-field col s6">
@@ -172,7 +177,8 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Our mission</h5>
-          <p class="grey-text text-lighten-4">We strive to make it easy and convenient for you to find out what the @#$! is happening around you.</p>
+          <p class="grey-text text-lighten-4">We strive to make it easy and convenient for you to find out what the
+            @#$! is happening around you.</p>
 
 
         </div>
@@ -180,7 +186,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
       </div>
     </div>
   </footer>
@@ -188,10 +194,11 @@
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/map.js"></script>
   <script src="js/main.js"></script>
-<<<<<<< HEAD
 
-=======
->>>>>>> 4255576ef670c66b8832b47f8b3fdf0742512de7
-  </body>
+  
+
+</body>
+
 </html>
