@@ -242,7 +242,7 @@ function getUserLocation(address) {
 
   if (address === null || address === "" || address === undefined) {
     //get address by ip
-    $.ajax({ url: "http://api.ipstack.com/check?access_key=93b4b312bfe2d6973d6eb6f7c0be4c1a", method: "GET" }).then(function (resp) {
+    $.ajax({ url: "https://api.ipstack.com/check?access_key=93b4b312bfe2d6973d6eb6f7c0be4c1a", method: "GET" }).then(function (resp) {
       userLocation = pruneObjectTree(resp, ["zip", "latitude", "longitude"]);
       console.log("user location finished");
       startUpSearch();
