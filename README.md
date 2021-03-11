@@ -5,7 +5,7 @@ Don't know what to do over the weekend? Are you traveling to another city and wa
 Do you want to know when your favorite artist will be stopping by your home town? Event Finder is a tool that will 
 help you find answer those fundamental questions and show you a map to help you navigate there.
 
-https://peterjast.github.io/Project-1/
+https://peterjast.github.io/event-finder/
 
 ## Getting Started
 
